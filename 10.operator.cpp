@@ -57,10 +57,9 @@ Point operator+(const Point &a, const Point &b) {
 
 }
 
-Point &operator++() {
-    Point t;
+Point & operator++() {
     cout << this->x << "llll" << endl;
-    return t;
+    return *this;
 }
 
 
@@ -81,7 +80,8 @@ int main () {
         cout << e << endl;
         cout << a(5) << endl;
         cout << a["x"] << " " << a["y"] << endl;
-        d++e;
+        Point h;
+        h.operator++();
         return 0;
 
 }
