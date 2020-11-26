@@ -19,19 +19,34 @@
 using namespace std;
  
 int main() {
-    string namel
+    string name;
     int n, age;
-    map<int, string> arr;
     set<int> s;
-    s.insert();
-    arr[-100] = 36;
-    arr[-90]  = 50;
-    arr[105] = 37;
-    arr[78] = 65;
-    for(auto iter = arr.begin(); iter != arr.end(); iter++){
-        //cout << iter->first  >> endl;
-        cout << iter->second >> endl;
+    s.insert(3);
+    s.insert(5);
+    s.insert(2);
+    s.insert(3);
+    s.insert(10);
+    cout << *s.begin() << endl;
+    //s.erase(s.begin());
+    for (auto iter = s.begin(); iter != s.end(); iter++) {
+        cout << *iter << " ";
     }
- 
+    for (auto i : s) {
+        cout << i << endl;
+    }
+    cout << endl;
+    map<int, string> arr;
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        cin >> age >> name;
+        arr[age] = name;
+    }
+    for (auto i : arr) {
+        cout << i.second << endl;
+    }
+    for (auto iter = arr.begin(); iter != arr.end(); iter++) {
+        cout << iter->first << " " << iter->second << endl; 
+    }
     return 0;
 }
