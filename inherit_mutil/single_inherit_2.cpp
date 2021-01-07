@@ -1,8 +1,8 @@
 /*************************************************************************
-	> File Name: sigle_inheriit_funcs.cpp
+	> File Name: single_inherit_2.cpp
 	> Author: zhouyuan
 	> Mail: 3294207721@qq.com 
-	> Created Time: 2020年11月25日 星期三 19时08分09秒
+	> Created Time: 2020年11月27日 星期五 10时04分45秒
  ************************************************************************/
 
 #include<iostream>
@@ -15,10 +15,10 @@ using namespace std;
 
 class Person {
 public:
+    Person() = default;
     Person(string n) {
         name = n;
     }
-    Person() = default;
     void showMessage() {
         cout << name << endl;
     }
@@ -26,33 +26,39 @@ private:
     string name;
 };
 
-class Man: public Person{
+class Man:public Person {
 public:
-    Man(string n, string wn):Person(n) {
-        workName = wn;
+    Man(string n, string w):Person(n){
+        workName = w;
     }
-    Man (const Man &m):Person(m){
+    Man (const Man &m):Person(m) {
         this->workName = m.workName;
+
     }
     void showPersonMessage() {
-        this->showManMessage();
+        this->showMessage();
     }
     void showManMessage() {
         cout << workName << endl;
     }
 private:
-    string name;
     string workName;
 };
 
+
 int main() {
-    Man m = Man{"张三", "厨师"};
+    Man m = Man("张三","厨师");
     m.showMessage();
     m.showPersonMessage();
     m.showManMessage();
-    Man newman = m;
-    m.showMessage();
-    m.showPersonMessage();
-    m.showManMessage();
+    Man newm = m;
+    newm.showMessage();
+    newm.showPersonMessage();
+    newm.showManMessage();
+    Man mm("", "");
+    mm = m;
+    mm.showMessage();
+    mm.showPersonMessage();
+    mm.showManMessage();
     return 0;
 }
